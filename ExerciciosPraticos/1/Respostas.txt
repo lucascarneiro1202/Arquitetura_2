@@ -1,0 +1,11 @@
+1) Se um dos terminais de entrada de uma porta lógica não estiver conectado a nenhum nível lógico, a porta de saída terá sempre nível lógico baixo. Dessa forma, independentemente do estado da porta conecetada, a porta de saída estará sempre desligada.
+
+2) O somador de 4 bits constituído por subcircuitos de somadores completos possui um problema de propagação, visto que a soma de cada um dos bits, a partir do menos significativo, depende obrigatoriamente do resultado da soma anterior. Isso acontece, pois o somador completo necessita, além dos dígitos de cada um dos números a serem somados, o 'Carry In' do dígito anterior, o que torna essa estratégia ineficiente, tendo em vista um atraso médio de cada porta lógica de 10 nanossegundos.
+
+3) Para a computação de uma soma e do "vai um" em um somador completo de 4 bits, há uma demora de 200 nanossegundos, visto que há 4 somadores completos internamente e cada um deles possui 5 portas lógicas, com um atraso médio de 10 nanossegundos cada uma.
+
+4) Para um somador de 32 bits, seria necessário o encadeamento de 8 somadores completos de 4 bits.
+
+5) Considerando que a computação de uma soma em um somador completo de 4 bits demora em média 200 nanossegundos, um somador de 32 bits - constituído por 8 somadores de 4 bits - realiza uma soma a cada 1600 nanossegundos. Dessa forma, o período de cada soma é de 0,0000016 segundos e a frequência, sendo o inverso do período, equivale a 625.000 somas por segundo.
+
+6) Para tornar essa soma mais veloz, uma alternativa seria refazer a estrutura básica do somador completo de 1 bit, de modo a diminuir a quantidade de portas lógicas que podem estar aumentando desnecessariamente o tempo de atraso de cada somador. Entretanto, essa mudança não teria um impacto tão significativo quanto a estratégia de prever a existência ou não de um "Carry Out" do dígito anterior antes de propriamente realizar a sua soma, mesmo que a sua implementação ainda não esteja clara.
